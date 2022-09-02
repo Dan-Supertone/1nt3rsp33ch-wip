@@ -74,15 +74,15 @@ function setValue(a) {
   document.getElementById('value1').innerHTML = a;
   audioValue = a;
   reset();
-  audioPack[audioValue].volume = 1;
+  audioPack[audioValue].muted = false;
 }
 
 
 
 $('.btn-play').click(function() {
-  play();
   reset();
-  audioPack[audioValue].volume = 1;
+  audioPack[audioValue].muted = false;
+  play();
 })
 
 $('.btn-pause').click(function() {
@@ -106,11 +106,11 @@ function pause() {
 }
 
 function reset() {
-  audioPack[0].volume = 0;
-  audioPack[1].volume = 0;
-  audioPack[2].volume = 0;
-  audioPack[3].volume = 0;
-  audioPack[4].volume = 0;
+  audioPack[0].muted = true;
+  audioPack[1].muted = true;
+  audioPack[2].muted = true;
+  audioPack[3].muted = true;
+  audioPack[4].muted = true;
 };
 
 </script>
