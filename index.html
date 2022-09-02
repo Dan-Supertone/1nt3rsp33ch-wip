@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interspeech</title>
+<!-- Styles & Scripts -->
+<link rel="stylesheet" href="./styles/main.css">
+<link rel="stylesheet" href="https://use.typekit.net/ynw5mlv.css">
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+<!--<script>
+let audios = [];
+
+function preload() {
+  for(let i = 0; i < preload.arguments.lenght; i++) {
+    audios[i] = new Image();
+    audios[i].src = preload.arguments.src;
+  }
+}
+
+preload(
+  "./audio/audioAA.mp3",
+  "./audio/audioAB.mp3",
+  "./audio/audioAC.mp3",
+  "./audio/audioBA.mp3",
+  "./audio/audioBB.mp3",
+  "./audio/audioBC.mp3"
+)
+</script>-->
+</head>
+<body>
+<div class="container">
+  <div class="image">
+    <div>image</div>
+    <div id="value1">0</div>
+  </div>
+  <div class="button-wrap">
+    <button class="btn-play">play</button>
+    <button class="btn-pause">pause</button>
+  </div>
+  <!--<div class="value" id="value1">1</div>-->
+  <input type="range" value="0" min="0" max="4" oninput="setValue(this.value)" class="rangerange">
+</div>
+
+</body>
+<script>
+
+const audioA = new Audio();
+audioA.src = "./audio/audioA.mp3";
+audioA.loop = true;
+
+const audioB = new Audio();
+audioB.src = "./audio/audioB.mp3";
+audioB.loop = true;
+
+const audioC = new Audio();
+audioC.src = "./audio/audioC.mp3";
+audioC.loop = true;
+
+const audioD = new Audio();
+audioD.src = "./audio/audioD.mp3";
+audioD.loop = true;
+
+const audioE = new Audio();
+audioE.src = "./audio/audioE.mp3";
+audioE.loop = true;
+
+const audioPack = [audioA, audioB, audioC, audioD, audioE];
+
+let audioValue = 0;
+
+function setValue(a) {
+  document.getElementById('value1').innerHTML = a;
+  audioValue = a;
+  reset();
+  audioPack[audioValue].volume = 1;
+}
+
+
+
+$('.btn-play').click(function() {
+  play();
+  reset();
+  audioPack[audioValue].volume = 1;
+})
+
+$('.btn-pause').click(function() {
+  pause();
+})
+
+function play() {
+  audioPack[0].play();
+  audioPack[1].play();
+  audioPack[2].play();
+  audioPack[3].play();
+  audioPack[4].play();
+};
+
+function pause() {
+  audioPack[0].pause();
+  audioPack[1].pause();
+  audioPack[2].pause();
+  audioPack[3].pause();
+  audioPack[4].pause();
+}
+
+function reset() {
+  audioPack[0].volume = 0;
+  audioPack[1].volume = 0;
+  audioPack[2].volume = 0;
+  audioPack[3].volume = 0;
+  audioPack[4].volume = 0;
+};
+
+</script>
+</html>
